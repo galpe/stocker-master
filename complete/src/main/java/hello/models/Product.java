@@ -1,5 +1,8 @@
 package hello.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.Date;
 
 /**
@@ -13,8 +16,24 @@ public class Product
     private Status status;
     private boolean liked;
     private String category;
+    @JsonInclude(value= JsonInclude.Include.NON_EMPTY)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss'.000Z'")
     private Date lastEdited;
     private User lastEditor;
+
+
+    public Product()
+    {
+    }
+
+    public Product(String id, String name, String imgUrl, Status status, String category)
+    {
+        this.id = id;
+        this.name = name;
+        this.imgUrl = imgUrl;
+        this.status = status;
+        this.category = category;
+    }
 
     @Override
     public String toString()

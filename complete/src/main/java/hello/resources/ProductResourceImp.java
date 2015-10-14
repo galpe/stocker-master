@@ -5,10 +5,11 @@ import hello.models.Comment;
 import hello.models.ProductsDto;
 import hello.models.SidebarDto;
 import hello.models.Status;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import respositories.ProductRepository;
 
 import javax.ws.rs.QueryParam;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Created by janne.gershman on 10/14/15.
@@ -16,14 +17,15 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class ProductResourceImp
 {
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+    @Autowired
+    private ProductRepository productRepositoryImp;
 
     @RequestMapping("/getProducts")
     public ProductsDto getProducts(@QueryParam(value = "page") String page,
                                @QueryParam(value = "name") String name,
                                @QueryParam(value = "category") String category)
     {
+        productRepositoryImp.check();
         return new ProductsDto();
     }
 
@@ -52,4 +54,10 @@ public class ProductResourceImp
     {
         return new Comment().setText(body);
     }
+
+//    @Required
+//    public void setProductRepositoryImp(ProductRepositoryImp productRepositoryImp)
+//    {
+//        this.productRepositoryImp = productRepositoryImp;
+//    }
 }

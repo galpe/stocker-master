@@ -1,5 +1,8 @@
 package hello.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.Date;
 
 /**
@@ -8,6 +11,8 @@ import java.util.Date;
 public class Comment
 {
     private String id;
+    @JsonInclude(value= JsonInclude.Include.NON_EMPTY)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss'.000Z'")
     private Date date;
     private User author;
     private String text;

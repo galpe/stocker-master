@@ -7,5 +7,6 @@ public enum Status
 {
     full,
     enoughForNow,
-    empty
+    empty,
+    unknown
 }

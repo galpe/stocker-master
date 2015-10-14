@@ -1,5 +1,8 @@
 package hello.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.Date;
 import java.util.List;
 
@@ -11,8 +14,14 @@ public class ProductsDto
     private int page;
     private int numPages;
     private List<Product> products;
+    @JsonInclude(value= JsonInclude.Include.NON_EMPTY)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss'.000Z'")
     private Date dateStart;
+    @JsonInclude(value= JsonInclude.Include.NON_EMPTY)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss'.000Z'")
     private Date dateEnd;
+    @JsonInclude(value= JsonInclude.Include.NON_EMPTY)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd'T'HH:mm:ss'.000Z'")
     private Date nextDeliveryDate;
 
     @Override
