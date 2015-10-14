@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="productRepositoryImp" class="respositories.ProductRepositoryImp">
-        <constructor-arg name="products">
-            <set>
-                <ref bean="milk" />
-            </set>
-        </constructor-arg>
-    </bean>
-
-    <bean id="milk" class="hello.models.Product">
-        <property name="id" value="1"/>
-        <property name="name" value="Milk 3% - Tnuva" />
-        <property name="imgUrl" value="http://www.office-exp.co.il/ProductsImages/L357934.jpg" />
-        <property name="status" value="full"/>
-        <property name="category" value="Dairy milk" />
-    </bean>
-
-
-    <bean id="defaultService" class="hello.defaults.DefaultService">
-        <property name="productRepositoryImp" ref="productRepositoryImp" />
-    </bean>
-
-    <bean id="productResourceImp" class="hello.resources.ProductResourceImp" >
-        <!--<property name="productRepositoryImp" ref="productRepositoryImp" />-->
-    </bean>
-    <!--<bean id="application" class="hello.Application">-->
-        <!--<property name="defaultService" ref="defaultService" />-->
-    <!--</bean>-->
 </beans>

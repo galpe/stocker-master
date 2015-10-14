@@ -1,14 +1,14 @@
-package respositories;
+package hello.respositories;
 
 import hello.models.Product;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Controller;
 
 import java.util.Set;
 
 /**
  * Created by janne.gershman on 10/14/15.
  */
-@Repository
+@Controller
 public class ProductRepositoryImp
 implements ProductRepository
 {

@@ -1,15 +1,11 @@
 package hello.resources;
 
-
-import hello.models.Comment;
-import hello.models.ProductsDto;
-import hello.models.SidebarDto;
-import hello.models.Status;
-import org.springframework.beans.factory.annotation.Autowired;
+import hello.models.*;
 import org.springframework.web.bind.annotation.*;
-import respositories.ProductRepository;
 
 import javax.ws.rs.QueryParam;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by janne.gershman on 10/14/15.
@@ -17,16 +13,16 @@ import javax.ws.rs.QueryParam;
 @RestController
 public class ProductResourceImp
 {
-    @Autowired
-    private ProductRepository productRepositoryImp;
+    private List<Product> products = new ArrayList<Product>() {{
+        add(new Product("1", "nfaf", "Sdfsdf", Status.empty, "Sdfsdf"));
+    }};
 
     @RequestMapping("/getProducts")
     public ProductsDto getProducts(@QueryParam(value = "page") String page,
                                @QueryParam(value = "name") String name,
                                @QueryParam(value = "category") String category)
     {
-        productRepositoryImp.check();
-        return new ProductsDto();
+        return new ProductsDto().setProducts(products);
     }
 
     @RequestMapping("/getSidebar")
@@ -54,10 +50,4 @@ public class ProductResourceImp
     {
         return new Comment().setText(body);
     }
-
-//    @Required
-//    public void setProductRepositoryImp(ProductRepositoryImp productRepositoryImp)
-//    {
-//        this.productRepositoryImp = productRepositoryImp;
-//    }
 }

@@ -1,4 +1,4 @@
-package respositories;
+package hello.respositories;
 
 /**
  * Created by janne.gershman on 10/14/15.

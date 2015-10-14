@@ -1,9 +1,7 @@
 package hello.defaults;
 
 import org.springframework.beans.factory.annotation.Required;
-import respositories.ProductRepositoryImp;
-
-import java.util.HashSet;
+import hello.respositories.ProductRepositoryImp;
 
 /**
  * Created by janne.gershman on 10/14/15.
