@@ -50,9 +50,10 @@ public class SidebarDto
         return user;
     }
 
-    public void setUser(User user)
+    public SidebarDto setUser(User user)
     {
         this.user = user;
+        return this;
     }
 
     public List<PendingProduct> getPros()
@@ -60,9 +61,10 @@ public class SidebarDto
         return pros;
     }
 
-    public void setPros(List<PendingProduct> pros)
+    public SidebarDto setPros(List<PendingProduct> pros)
     {
         this.pros = pros;
+        return this;
     }
 
     public List<PendingProduct> getCons()
@@ -70,9 +72,10 @@ public class SidebarDto
         return cons;
     }
 
-    public void setCons(List<PendingProduct> cons)
+    public SidebarDto setCons(List<PendingProduct> cons)
     {
         this.cons = cons;
+        return this;
     }
 
     public List<Comment> getComments()
@@ -80,8 +83,9 @@ public class SidebarDto
         return comments;
     }
 
-    public void setComments(List<Comment> comments)
+    public SidebarDto setComments(List<Comment> comments)
     {
         this.comments = comments;
+        return this;
     }
 }
