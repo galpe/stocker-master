@@ -48,7 +48,7 @@ public class ProductResourceImp
     }
 
     @RequestMapping(value = "/changeProductStatus/{productId}/{status}", method = RequestMethod.POST)
-    public Status changeGroup(@PathVariable String productId, @PathVariable Status status)
+    public Status changeProductStatus(@PathVariable String productId, @PathVariable Status status)
     {
         return status;
     }
